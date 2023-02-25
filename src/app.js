@@ -6,7 +6,6 @@ import { TimerModule } from "./modules/timer.module";
 
 
 
-
 class App {
  #contextMenu
  constructor(){
@@ -26,12 +25,15 @@ class App {
       if (moduleType === "background") {
         const backGroundModuleInstance = new BackgroundModule(moduleType, moduleText);
         backGroundModuleInstance.trigger();
+        document.querySelector('.menu').classList.remove('open')
       } else if (moduleType === "countclick") {
         const countClicksModuleInstance = new ClicksModule(moduleType, moduleText);
         countClicksModuleInstance.trigger();
+        document.querySelector('.menu').classList.remove('open')
       } else if(moduleType === "timer" ){
         const timerModuleInstance = new TimerModule(moduleType, moduleText)
         timerModuleInstance.trigger()
+        document.querySelector('.menu').classList.remove('open')
       }
     
     }

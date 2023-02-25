@@ -11,3 +11,16 @@ export function generatorRandomColor() {
   }
   document.body.style.background = randomNumberColor;
 }
+
+export function validateTimeEntered(time){
+  
+    if (!time) {
+      throw new Error('This is not a number')
+    } else if (time > 30) {
+      throw new Error('Too much time')
+    } else if (time < 0) {
+      throw new Error('This time is less than zero')
+    }
+
+    
+}
