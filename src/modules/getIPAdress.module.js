@@ -61,7 +61,7 @@ function getData() {
   if (validateIP(ipInput.value)) {
     const a = async () => {
         const response = await
-         fetch(`https://api.ipify.org?format=json`);
+         fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=c80339b91d1c472e9712e18465878ce0&ip=46.56.239.62`);
         const result = await response.json();
         console.log(result)
         
