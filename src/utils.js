@@ -25,3 +25,11 @@ export function validateTimeEntered(time){
     
 }
 
+
+
+export function generateRandomPosition(screenWidth, screenHeight){
+  const x = Math.floor(Math.random() * screenWidth/1.5)
+  const y = Math.floor(Math.random() * screenHeight/1.5)
+
+  return {x, y}
+}

@@ -3,7 +3,7 @@ import { ContextMenu } from "./menu";
 import { BackgroundModule } from "./modules/background.module";
 import { ClicksModule } from "./modules/clicks.module";
 import { TimerModule } from "./modules/timer.module";
-
+import { ShapeModule } from "./modules/shape.module";
 
 
 class App {
@@ -15,6 +15,7 @@ class App {
     this.#contextMenu.add("background", "Изменить цвет фона");
     this.#contextMenu.add("countclick", "Аналитика кликов");
     this.#contextMenu.add("timer", "Таймер отсчета")
+    this.#contextMenu.add("shapes", "Создать случайную фигуру")
     document.querySelector('.menu').addEventListener('click', this.selectModal)
  }
 
@@ -33,6 +34,10 @@ class App {
       } else if(moduleType === "timer" ){
         const timerModuleInstance = new TimerModule(moduleType, moduleText)
         timerModuleInstance.trigger()
+        document.querySelector('.menu').classList.remove('open')
+      } else if(moduleType === "shapes") {
+        const shapeInstance = new ShapeModule(moduleType, moduleText)
+        shapeInstance.trigger()
         document.querySelector('.menu').classList.remove('open')
       }
     
