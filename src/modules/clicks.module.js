@@ -28,7 +28,7 @@ export class ClicksModule extends Module {
           alert(`Your result is ${clicker.clicks} clicks`)
           timer.delete()
           clicker.delete()
-          this.isTimerOn = !this.isTimerOn
+          
         }, seconds*1000)
       }
       
