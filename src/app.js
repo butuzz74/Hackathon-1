@@ -11,9 +11,8 @@ class App {
  #contextMenu
  constructor(){
   this.#contextMenu = new ContextMenu(".menu")
-  //вынести инициализацию open-close в конструктор меню
-    this.#contextMenu.open()
-    this.#contextMenu.close()
+  
+    
     this.#contextMenu.add("background", "Изменить цвет фона");
     this.#contextMenu.add("countclick", "Аналитика кликов");
     this.#contextMenu.add("timer", "Таймер отсчета")

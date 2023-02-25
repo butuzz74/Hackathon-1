@@ -4,13 +4,16 @@ import { Module } from "./core/module";
 export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
+    document.body.addEventListener("contextmenu", this.open.bind(this))
   }
-  open() {
-    document.body.addEventListener("contextmenu", (event) => {
-      event.preventDefault();
-      this.el.classList.add("open");
-      this.el.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-    });
+  open(event) {
+    event.preventDefault()
+   
+    this.el.style.left = `${event.x}px`
+    this.el.style.top =  `${event.y}px`
+    this.el.classList.add('open') 
+    
+    
   }
   close() {
     this.el.classList.remove("open");
