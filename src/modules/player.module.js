@@ -6,8 +6,8 @@ export class PlayerModule extends Module {
   trigger() {
     const player = {    
         video1: "./src/video/Code_flythough_loop_01_Videvo_preview.mp4",
-        video2: "./src/video/Code_flythough_loop_01_Videvo_preview.mp4",
-        video3: "./src/video/Code_flythough_loop_01_Videvo_preview.mp4"
+        video2: "./src/video/NO MR_STOCK FOOTAGE NO MR (290)_preview.mp4",
+        video3: "./src/video/NO MR_STOCK FOOTAGE NO MR (2098)_preview.mp4"
         }
     
     const playerLink = document.createElement('div')
