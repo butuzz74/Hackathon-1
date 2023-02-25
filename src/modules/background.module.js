@@ -7,6 +7,6 @@ export class BackgroundModule extends Module {
   }
 
   trigger() {
-    generatorRandomColor();
+    document.body.style.background = generatorRandomColor();
   }
 }
