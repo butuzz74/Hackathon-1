@@ -4,6 +4,7 @@ import { BackgroundModule } from "./modules/background.module";
 import { ClicksModule } from "./modules/clicks.module";
 import { TimerModule } from "./modules/timer.module";
 import { ShapeModule } from "./modules/shape.module";
+import { AudioModule } from "./modules/audionmodule";
 
 
 class App {
@@ -16,6 +17,7 @@ class App {
     this.#contextMenu.add("countclick", "Аналитика кликов");
     this.#contextMenu.add("timer", "Таймер отсчета")
     this.#contextMenu.add("shapes", "Создать случайную фигуру")
+    this.#contextMenu.add("sounds", "Создать случайный звук")
     document.querySelector('.menu').addEventListener('click', this.selectModal)
  }
 
@@ -38,6 +40,10 @@ class App {
       } else if(moduleType === "shapes") {
         const shapeInstance = new ShapeModule(moduleType, moduleText)
         shapeInstance.trigger()
+        document.querySelector('.menu').classList.remove('open')
+      } else if(moduleType === "sounds") {
+        const audioInstance = new AudioModule(moduleType, moduleText)
+        audioInstance.trigger()
         document.querySelector('.menu').classList.remove('open')
       }
     
