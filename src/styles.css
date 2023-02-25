@@ -59,3 +59,10 @@ body {
     justify-content: center;
     align-items: center;      
 }
+
+.counter {
+    background-color: black;
+    color: gold;
+    border: 2px solid rgb(104, 96, 50);
+    box-shadow: inset 1px 1px 1px 1px;
+}

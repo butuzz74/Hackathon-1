@@ -4,32 +4,38 @@ import { BackgroundModule } from "./modules/background.module";
 import { ClicksModule } from "./modules/clicks.module";
 import { TimerModule } from "./modules/timer.module";
 
-const myContextMenu = new ContextMenu(".menu");
-myContextMenu.open();
-myContextMenu.close();
-myContextMenu.add("background", "Изменить цвет фона");
-myContextMenu.add("countclick", "Аналитика кликов");
-myContextMenu.add("timer", "Таймер отсчета")
 
 
-function hhh(){
-    const h = document.querySelector('.menu')
-    h.addEventListener("click", handlClick);
-    function handlClick(event) {
-      const f = event.target.dataset.type;
-    
-      const v = event.target.textContent;
-    
-      if (f === "background") {
-        const a = new BackgroundModule(f, v);
-        a.trigger();
-      } else if (f === "countclick") {
-        const a = new ClicksModule(f, v);
-        a.trigger();
-      } else if(f === "timer" ){
-        const a = new TimerModule(f,v)
-        a.trigger()
+
+class App {
+ #contextMenu
+ constructor(){
+  this.#contextMenu = new ContextMenu(".menu")
+  //вынести инициализацию open-close в конструктор меню
+    this.#contextMenu.open()
+    this.#contextMenu.close()
+    this.#contextMenu.add("background", "Изменить цвет фона");
+    this.#contextMenu.add("countclick", "Аналитика кликов");
+    this.#contextMenu.add("timer", "Таймер отсчета")
+    document.querySelector('.menu').addEventListener('click', this.selectModal)
+ }
+
+ selectModal(event){
+  const moduleType = event.target.dataset.type;
+      const moduleText = event.target.textContent;
+
+      if (moduleType === "background") {
+        const backGroundModuleInstance = new BackgroundModule(moduleType, moduleText);
+        backGroundModuleInstance.trigger();
+      } else if (moduleType === "countclick") {
+        const countClicksModuleInstance = new ClicksModule(moduleType, moduleText);
+        countClicksModuleInstance.trigger();
+      } else if(moduleType === "timer" ){
+        const timerModuleInstance = new TimerModule(moduleType, moduleText)
+        timerModuleInstance.trigger()
       }
+    
     }
-} 
-hhh()
+ }
+
+ const newApp = new App()
