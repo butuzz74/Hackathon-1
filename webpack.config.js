@@ -54,6 +54,14 @@ module.exports = (env, argv) => {
           use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
         {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
+        },
+        {
           test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
@@ -62,7 +70,8 @@ module.exports = (env, argv) => {
               presets: ['@babel/preset-env']
             }
           }
-        }
+        },
+        
       ],
     }
   }

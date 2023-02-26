@@ -6,14 +6,15 @@ export class TimerModule extends Module {
       }
     
       trigger() {
-          let count = 20
+        let countDownInSec = 20
         const timer = document.createElement('div')
         timer.className = 'timer'        
-        timer.innerText = count
+        timer.innerText = countDownInSec
         document.body.prepend(timer)
-        let newTimer  = setInterval(()=>{
-            timer.innerText = `${count--}`
-            if(count === 0){
+        const newTimer  = setInterval(()=>{
+            countDownInSec--
+            timer.innerText = countDownInSec
+            if(countDownInSec === 0){
                 clearInterval(newTimer)
                 timer.innerText = 'End'
                 setTimeout(()=>

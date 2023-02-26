@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
+:root {
+    --timergreen: #1abc9c;
+    --timerwhite: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,10 +17,11 @@ body {
     height: 100vh;
     width: 100%;
     padding: 2rem;
+    overflow: hidden;
 }
 
 .menu {
-    position: fixed;
+    position: relative;
     z-index: 1000;
     width: 150px;
     background: #1b1a1a;
@@ -59,3 +65,93 @@ body {
     justify-content: center;
     align-items: center;      
 }
+
+
+/*clicker-helpers*/
+
+.seconds {
+    
+    background-color: var(--timergreen);
+    color: var(--timerwhite);
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+.counter {
+    
+    background-color: var(--timerwhite);
+    color: var(--timergreen);
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+
+/* figures */
+
+.shadowedbox {
+    position: absolute;
+    box-shadow: 10px 10px 10px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.triangle {
+ 
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid red;
+    
+    
+    
+  }
+
+  .leaf {
+    
+    
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 20%;
+    background: hsl(100, 50%, 50%);
+    animation-name: leafFading;
+    animation-duration: 6s;
+    animation-iteration-count: 1
+}
+
+.weatherBox {
+    width: 250px;
+    height: 100px;
+    background: black;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+
+@keyframes leafFading {
+    from {
+        background: hsl(100, 50%, 50%)
+    }
+
+    50% {
+        background: yellow
+    }
+
+    to {
+        background: hsl(11, 80%, 60%)
+    }
+}
+
+    
+  
