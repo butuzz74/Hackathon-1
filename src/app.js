@@ -7,7 +7,6 @@ import { ShapeModule } from "./modules/shape.module";
 import { AudioModule } from "./modules/audionmodule";
 import { WeatherModule } from "./modules/weather";
 
-
 class App {
  #contextMenu
  constructor(){
@@ -58,3 +57,5 @@ class App {
  }
 
  const newApp = new App()
+
+ export default newApp

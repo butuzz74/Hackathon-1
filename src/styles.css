@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
 
 :root {
     --timergreen: #1abc9c;
@@ -48,24 +50,24 @@ body {
 }
 
 .timer{
+    font-family: 'Tilt Warp', cursive;
     display: flex;
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    top: 0;
-    right: 0;
+    width: 200px;
+    height: 200px;
+    position: 100px, 100px;
+    top: 80px;
     z-index: 1000;
-    font-size: 26px;
-    color: #fff;
+    font-size: 70px;
+    color: rgb(121, 57, 166);
     background: mediumseagreen;
     border-radius: 50%;
     border: 2px solid #4d19c5;
-    margin-top: 30px;
-    margin-right: 30px;
+    margin-top: 40px;
+    margin: auto;
     justify-content: center;
     align-items: center;      
 }
-
+    
 
 /*clicker-helpers*/
 

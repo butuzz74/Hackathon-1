@@ -1,3 +1,5 @@
+import { musicArr } from "./modules/music/music_files"
+
 export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
@@ -27,10 +29,14 @@ export function validateTimeEntered(time){
 }
 
 
-
 export function generateRandomPosition(screenWidth, screenHeight){
   const x = Math.floor(Math.random() * screenWidth/1.5)
   const y = Math.floor(Math.random() * screenHeight/1.5)
 
   return {x, y}
 }
+
+export function RANDOM_MUSIC_FUNCTION() {
+  let randomNumber = Math.floor(Math.random() * musicArr.length);
+  return musicArr[randomNumber];
+};

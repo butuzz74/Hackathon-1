@@ -1,6 +1,7 @@
 import { Module } from "../core/module";
+import { RANDOM_MUSIC_FUNCTION } from "../utils"
 
-const web_url = 'https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_OGG.ogg'
+
 
 export class AudioModule extends Module {
   constructor(type, text) {
@@ -8,8 +9,8 @@ export class AudioModule extends Module {
   }
 
   trigger() {
-
-    const audio = new Audio(web_url)
+      
+    const audio = new Audio(RANDOM_MUSIC_FUNCTION())
     audio.play()
      
   }

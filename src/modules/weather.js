@@ -15,8 +15,6 @@ export class WeatherModule extends Module {
     
   }
 
-
-
   getWeather(API_response){
       const latitude = API_response.coords.latitude;
       const longitude = API_response.coords.longitude;

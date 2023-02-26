@@ -1,25 +1,35 @@
 import {Module} from '../core/module'
+import { RANDOM_MUSIC_FUNCTION } from '../utils'
 
 export class TimerModule extends Module {
-    constructor(type, text) {
-        super(type, text);
+  #timer
+  #seconds
+  constructor(type, text) {
+    super(type, text);
+    this.#timer = document.createElement('div')
+    this.#timer.className = 'timer'        
+    this.#seconds = Math.floor(+prompt('Установите время для отсчета в секундах'))
+    this.#timer.innerText = this.#seconds
       }
     
       trigger() {
-        let countDownInSec = 20
-        const timer = document.createElement('div')
-        timer.className = 'timer'        
-        timer.innerText = countDownInSec
-        document.body.prepend(timer)
-        const newTimer  = setInterval(()=>{
-            countDownInSec--
-            timer.innerText = countDownInSec
-            if(countDownInSec === 0){
-                clearInterval(newTimer)
-                timer.innerText = 'End'
-                setTimeout(()=>
-                timer.remove(), 2000)
+
+        document.body.prepend(this.#timer)
+        const timer = document.querySelector('.timer')
+        const timerInterval  = setInterval(()=>{
+            this.#seconds--
+            timer.innerText = this.#seconds
+            if(this.#seconds < 0){
+                clearInterval(timerInterval)
+                timer.innerText = 'Click!'
+                timer.addEventListener('click', this.playAudio)
+                timer.addEventListener('click', () => timer.remove())
             }
         },1000)
+      }
+
+      playAudio() {
+        const audio = new Audio(RANDOM_MUSIC_FUNCTION())
+        audio.play() 
       }
 }
