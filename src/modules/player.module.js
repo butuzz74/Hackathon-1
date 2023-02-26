@@ -38,10 +38,10 @@ export class PlayerModule extends Module {
         event.target.removeAttribute("controls")
       );
     });
-    playerLink.addEventListener('click', (event)=>{
-        if(event.target.classList.contains('span')){
-            playerLink.remove()
-        }
-    })
+    playerLink.addEventListener("click", (event) => {
+      if (event.target.classList.contains("span")) {
+        playerLink.remove();
+      }
+    });
   }
 }
