@@ -6,6 +6,8 @@ import { TimerModule } from "./modules/timer.module";
 import { ShapeModule } from "./modules/shape.module";
 import { AudioModule } from "./modules/audionmodule";
 import { WeatherModule } from "./modules/weather";
+import { FlyingCat } from "./modules/flyingcat";
+
 
 
 class App {
@@ -20,6 +22,8 @@ class App {
     this.#contextMenu.add("shapes", "Создать случайную фигуру")
     this.#contextMenu.add("sounds", "Создать случайный звук")
     this.#contextMenu.add("weather", "Узнать погоду")
+    this.#contextMenu.add("flyingCat", "Летающий котик")
+
     
     document.querySelector('.menu').addEventListener('click', this.selectModal)
  }
@@ -51,6 +55,10 @@ class App {
       } else if(moduleType === "weather") {
         const weatherInstance = new WeatherModule(moduleType, moduleText)
         weatherInstance.trigger()
+        document.querySelector('.menu').classList.remove('open')
+      } else if(moduleType === "flyingCat") {
+        const flyingCatInstance = new FlyingCat(moduleType, moduleText)
+        flyingCatInstance.trigger()
         document.querySelector('.menu').classList.remove('open')
       }
     
