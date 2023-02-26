@@ -1,82 +1,88 @@
 import { Module } from "../core/module";
+import { validateIP } from "../utils";
 
 export class IPTracer extends Module {
   #template;
   constructor(type, text) {
-    super(type, text);
+    super(type, text)
+
+    this.#template = this.renderTemplate();
+    document.body.insertAdjacentHTML("afterbegin", this.#template);
+
+    this.ipInput = document.querySelector(".search-bar__input");
+    this.btn = document.querySelector(".search-bar__btn");
+    this.ipInfo = document.querySelector("#ip");
+    this.locationInfo = document.querySelector("#location");
+    this.timezoneInfo = document.querySelector("#timezone");
+    this.ispInfo = document.querySelector("#isp");
+    this.close = document.querySelector(".close");
+    this.finder = document.querySelector(".finder");
+
+  }
+
+
+  setInfo(data) {
+    
+      this.ipInfo.textContent = data.ip;
+      this.ispInfo.textContent = data.isp;
+      this.locationInfo.textContent = data.country_name + " " + data.city;
+      this.timezoneInfo.textContent = data.time_zone.current_time;
+    
+  }
+
+
+  getData() {
+    const isValidIP = validateIP(this.ipInput.value)
+    if (isValidIP) {
+      try {
+        const getResponse = async () => {
+          const response = await fetch(
+            `https://api.ipgeolocation.io/ipgeo?apiKey=c80339b91d1c472e9712e18465878ce0&ip=${this.ipInput.value}`
+          );
+          if(!response.ok){
+            throw new Error ('Ошибка загрузки')
+          }
+          const result = await response.json();              
+          this.setInfo(result);
+        };
+        getResponse();            
+
+      } catch (error) {
+        console.error('Error', error)
+      }
+    }
+      
+    
+  };
+   
+  handleKey(event) {
+    if (event.key === "Enter") {
+      this.getData();
+    }
+  }
+  
+  handleClose() {
+    this.finder.remove();
+    this.close.remove();
+    this.btn.removeEventListener("click", this.getData);
+    this.ipInput.removeEventListener("keydown", this.handleKey);
+    this.close.removeEventListener("click", this.handleClose);
   }
 
   trigger() {
-    this.#template = this.render();
+  
 
-    document.body.insertAdjacentHTML("afterbegin", this.#template);
+   
+    this.ipInput.addEventListener("keydown", this.handleKey.bind(this));
+    this.btn.addEventListener("click", this.getData.bind(this));
+    this.close.addEventListener("click", this.handleClose.bind(this));
 
-    const ipInput = document.querySelector(".search-bar__input");
-    const btn = document.querySelector(".search-bar__btn");
-    const ipInfo = document.querySelector("#ip");
-    const locationInfo = document.querySelector("#location");
-    const timezoneInfo = document.querySelector("#timezone");
-    const ispInfo = document.querySelector("#isp");
-    const close = document.querySelector(".close");
-    const finder = document.querySelector(".finder");
-
-    const getData = () => {
-      if (this.validateIP(ipInput.value)) {
-        try {
-            const getResponse = async () => {
-              const response = await fetch(
-                `https://api.ipgeolocation.io/ipgeo?apiKey=c80339b91d1c472e9712e18465878ce0&ip=${ipInput.value}`
-              );
-              if(!response.ok){
-                throw new Error ('Ошибка загрузки')
-              }
-              const result = await response.json();              
-              setInfo(result);
-            };
-            getResponse();            
-
-          } catch (error) {
-            console.error('Error', error)
-          }
-      }
-    };
-
-    btn.addEventListener("click", getData);
-    ipInput.addEventListener("keydown", handleKey);
-    close.addEventListener("click", handleClose);
-
-    function handleKey(event) {
-      if (event.key === "Enter") {
-        getData();
-      }
-    }
-
-    function setInfo(mapData) {
-      ipInfo.textContent = mapData.ip;
-      ispInfo.textContent = mapData.isp;
-      locationInfo.textContent = mapData.country_name + " " + mapData.city;
-      timezoneInfo.textContent = mapData.time_zone.current_time;
-    }
-    function handleClose() {
-      finder.remove();
-      close.remove();
-      btn.removeEventListener("click", getData);
-      ipInput.removeEventListener("keydown", handleKey);
-      close.removeEventListener("click", handleClose);
-    }
+  
+    
+   
   }
-  validateIP(ip) {
-    if (
-      /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
-        ip
-      )
-    ) {
-      return true;
-    }
-    alert("You have entered an invalid IP address!");
-    return false;
-  }
-  render() {
+  
+  renderTemplate() {
     return `
   <span class="close">&times;</span>
   <div class="finder">
