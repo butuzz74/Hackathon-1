@@ -32,7 +32,7 @@ export class WeatherModule extends Module {
           .then((weatherData) => {
               const currentDay = new Date().getHours();
               const currentWeather = weatherData.hourly.temperature_2m[currentDay - 1]
-              document.querySelector('.weatherBox').textContent =`${currentWeather} Celcium today in your city`    
+              document.querySelector('.weatherBox').textContent =`В Вашем городе ${currentWeather} градусов(-а) по Цельсию сегодня`    
           })
           .catch((error) => console.error(error))
           .finally((onFinally) => console.log("finally"))
@@ -51,7 +51,7 @@ export class WeatherModule extends Module {
     navigator.geolocation.getCurrentPosition(this.getWeather, this.geoPositionHandleError)
     setTimeout(() => {
       this.removeWeatherBox()
-    }, 3000);
+    }, 4000);
 
     
      
