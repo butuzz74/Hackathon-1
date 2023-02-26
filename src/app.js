@@ -5,6 +5,7 @@ import { ClicksModule } from "./modules/clicks.module";
 import { TimerModule } from "./modules/timer.module";
 import { ShapeModule } from "./modules/shape.module";
 import { AudioModule } from "./modules/audionmodule";
+import { WeatherModule } from "./modules/weather";
 
 
 class App {
@@ -18,6 +19,8 @@ class App {
     this.#contextMenu.add("timer", "Таймер отсчета")
     this.#contextMenu.add("shapes", "Создать случайную фигуру")
     this.#contextMenu.add("sounds", "Создать случайный звук")
+    this.#contextMenu.add("weather", "Узнать погоду")
+    
     document.querySelector('.menu').addEventListener('click', this.selectModal)
  }
 
@@ -44,6 +47,10 @@ class App {
       } else if(moduleType === "sounds") {
         const audioInstance = new AudioModule(moduleType, moduleText)
         audioInstance.trigger()
+        document.querySelector('.menu').classList.remove('open')
+      } else if(moduleType === "weather") {
+        const weatherInstance = new WeatherModule(moduleType, moduleText)
+        weatherInstance.trigger()
         document.querySelector('.menu').classList.remove('open')
       }
     
