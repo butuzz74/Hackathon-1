@@ -7,12 +7,9 @@ import { ShapeModule } from "./modules/shape.module";
 import { AudioModule } from "./modules/audionmodule";
 import { WeatherModule } from "./modules/weather";
 import { FlyingCat } from "./modules/flyingcat";
-
-function hhh() {
-  const h = document.querySelector(".menu");
-  h.addEventListener("click", handlClick);
-  function handlClick(event) {
-    const f = event.target.dataset.type;
+import { CustomMessageModule } from "./modules/custommessage.module";
+import { PlayerModule } from "./modules/player.module";
+import { IPTracer } from "./modules/ipTracker.module";
 
 
 class App {
@@ -28,6 +25,9 @@ class App {
     this.#contextMenu.add("sounds", "Создать случайный звук")
     this.#contextMenu.add("weather", "Узнать погоду")
     this.#contextMenu.add("flyingCat", "Летающий котик")
+    this.#contextMenu.add("message", "О котах")
+    this.#contextMenu.add("player", "Мультиплеер")
+    this.#contextMenu.add("iptracker", "IP Tracker")
 
     
     document.querySelector('.menu').addEventListener('click', this.selectModal)
@@ -64,6 +64,18 @@ class App {
       } else if(moduleType === "flyingCat") {
         const flyingCatInstance = new FlyingCat(moduleType, moduleText)
         flyingCatInstance.trigger()
+        document.querySelector('.menu').classList.remove('open')        
+      } else if(moduleType === "message") {
+        const customMessageInstance = new CustomMessageModule(moduleType, moduleText)
+        customMessageInstance.trigger()
+        document.querySelector('.menu').classList.remove('open')
+      } else if(moduleType === "player") {
+        const playerModule = new PlayerModule(moduleType, moduleText)
+        playerModule.trigger()
+        document.querySelector('.menu').classList.remove('open')
+      } else if(moduleType === "iptracker") {
+        const ipTracker = new IPTracer(moduleType, moduleText)
+        ipTracker.trigger()
         document.querySelector('.menu').classList.remove('open')
       }
     
