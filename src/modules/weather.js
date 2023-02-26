@@ -42,8 +42,9 @@ export class WeatherModule extends Module {
     document.querySelector(".weatherBox").remove();
   }
 
-  geoPositionHandleError(error) {
-    console.error("Произошла ошибка при определении геопозиции", error);
+  geoPositionHandleError(error){
+    document.querySelector('.weatherBox').textContent =`Вы не предоставили доступ`
+    console.error('Произошла ошибка при определении геопозиции', error)
   }
 
   trigger() {
