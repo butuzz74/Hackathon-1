@@ -44,7 +44,7 @@ export class WeatherModule extends Module {
   }
 
   geoPositionHandleError(error){
-    console.error(error)
+    console.error('Произошла ошибка при определении геопозиции', error)
   }
 
   trigger() {
