@@ -8,7 +8,7 @@ export class AudioModule extends Module {
   }
 
   trigger() {
-      
+
     const audio = new Audio(web_url)
     audio.play()
      

@@ -34,9 +34,17 @@ export class ShapeModule extends Module {
   
   setSize() {
     this.shapeSize = `${Math.floor(Math.random() * 200 + 20)}px`
-    this.shapeElement.style.width = this.shapeSize
-    this.shapeElement.style.height = this.shapeSize
+    if (this.shapeType == "triangle") { 
+      this.shapeElement.style.borderBottomWidth = this.shapeSize
+    } else {
+      
+      this.shapeElement.style.width = this.shapeSize
+      this.shapeElement.style.height = this.shapeSize
+    }
+    
   }
+
+  
 
   setColor() {
     if (this.shapeType == 'leaf') {
