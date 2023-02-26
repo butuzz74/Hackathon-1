@@ -11,7 +11,6 @@ import { CustomMessageModule } from "./modules/custommessage.module";
 import { PlayerModule } from "./modules/player.module";
 import { IPTracer } from "./modules/ipTracker.module";
 
-
 class App {
  #contextMenu
  constructor(){
@@ -83,3 +82,5 @@ class App {
  }
 
  const newApp = new App()
+
+ export default newApp
