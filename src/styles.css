@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 
 :root {
-    --timergreen: #1abc9c;
-    --timerwhite: #ffffff;
+  --timergreen: #1abc9c;
+  --timerwhite: #ffffff;
 }
 
 * {
@@ -12,37 +12,25 @@
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    padding: 2rem;
-    overflow: hidden;
-}
-
-.menu {
-    position: relative;
-    z-index: 1000;
-    width: 150px;
-    background: #1b1a1a;
-    border-radius: 5px;
-    display: none;
-    list-style: none;   
   font-size: 14px;
   font-family: "Roboto", sans-serif;
   height: 100vh;
   width: 100%;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .menu {
-  position: fixed;
+  position: relative;
   z-index: 1000;
-  width: 150px;
+  width: 250px;
   background: #1b1a1a;
   border-radius: 5px;
   display: none;
   list-style: none;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  padding: 2rem;
 }
 
 .menu.open {
@@ -62,131 +50,97 @@ body {
   background: #343434;
 }
 
-.timer{
-    font-family: 'Tilt Warp', cursive;
-    display: flex;
-    width: 200px;
-    height: 200px;
-    position: 100px, 100px;
-    top: 80px;
-    z-index: 1000;
-    font-size: 70px;
-    color: rgb(121, 57, 166);
-    background: mediumseagreen;
-    border-radius: 50%;
-    border: 2px solid #4d19c5;
-    margin-top: 40px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;      
+.timer {
+  font-family: "Tilt Warp", cursive;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  position: 100px, 100px;
+  top: 80px;
+  z-index: 1000;
+  font-size: 70px;
+  color: rgb(121, 57, 166);
+  background: mediumseagreen;
+  border-radius: 50%;
+  border: 2px solid #4d19c5;
+  margin-top: 40px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
-    
 
 /*clicker-helpers*/
 
 .seconds {
-    
-    background-color: var(--timergreen);
-    color: var(--timerwhite);
-    width: 120px;
-    height: 50px;
-    text-align: center;
-    font-size: 20px;
-    
+  background-color: var(--timergreen);
+  color: var(--timerwhite);
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .counter {
-    
-    background-color: var(--timerwhite);
-    color: var(--timergreen);
-    width: 120px;
-    height: 50px;
-    text-align: center;
-    font-size: 20px;
-    
+  background-color: var(--timerwhite);
+  color: var(--timergreen);
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  font-size: 20px;
 }
-
 
 /* figures */
 
 .shadowedbox {
-    position: absolute;
-    box-shadow: 10px 10px 10px;
+  position: absolute;
+  box-shadow: 10px 10px 10px;
 }
 
 .circle {
-    position: absolute;
-    border-radius: 50%;
+  position: absolute;
+  border-radius: 50%;
 }
 
 .triangle {
- 
-    width: 0;
-    height: 0;
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
-    border-bottom: 100px solid red;
-    
-    
-    
-  }
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid red;
+}
 
-  .leaf {
-    
-    
-    border-top-left-radius: 100%;
-    border-bottom-right-radius: 100%;
-    border-bottom-left-radius: 20%;
-    background: hsl(100, 50%, 50%);
-    animation-name: leafFading;
-    animation-duration: 6s;
-    animation-iteration-count: 1
+.leaf {
+  border-top-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 20%;
+  background: hsl(100, 50%, 50%);
+  animation-name: leafFading;
+  animation-duration: 6s;
+  animation-iteration-count: 1;
 }
 
 .weatherBox {
-    width: 250px;
-    height: 100px;
-    background: black;
-    color: #ffffff;
-    text-align: center;
-    font-size: 20px;
-    text-transform: uppercase;
+  width: 250px;
+  height: 100px;
+  background: black;
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
 }
-
 
 @keyframes leafFading {
-    from {
-        background: hsl(100, 50%, 50%)
-    }
+  from {
+    background: hsl(100, 50%, 50%);
+  }
 
-    50% {
-        background: yellow
-    }
+  50% {
+    background: yellow;
+  }
 
-    to {
-        background: hsl(11, 80%, 60%)
-    }
-}
-
-    
-  
-.timer {
-  display: flex;
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-  font-size: 26px;
-  color: #fff;
-  background: mediumseagreen;
-  border-radius: 50%;
-  border: 2px solid #4d19c5;
-  margin-top: 30px;
-  margin-right: 30px;
-  justify-content: center;
-  align-items: center;
+  to {
+    background: hsl(11, 80%, 60%);
+  }
 }
 
 .player-link {
