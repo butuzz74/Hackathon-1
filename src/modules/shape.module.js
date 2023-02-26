@@ -1,6 +1,6 @@
 import {Module} from '../core/module'
 import { generateRandomPosition } from '../utils'
-import { generatorRandomColor } from '../utils'
+import { generateRandomColor } from '../utils'
 
 
 
@@ -50,7 +50,7 @@ export class ShapeModule extends Module {
     if (this.shapeType == 'leaf') {
        return
     } 
-    this.shapeColor = generatorRandomColor()
+    this.shapeColor = generateRandomColor()
     if (this.shapeType == 'triangle') {
         this.shapeElement.style.borderBottomColor = this.shapeColor
     } else {

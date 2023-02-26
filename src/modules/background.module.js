@@ -1,5 +1,6 @@
 import { Module } from "../core/module";
-import { generatorRandomColor } from "../utils";
+import { generateRandomColor } from "../utils";
+
 
 export class BackgroundModule extends Module {
   constructor(type, text) {
@@ -7,6 +8,8 @@ export class BackgroundModule extends Module {
   }
 
   trigger() {
-    document.body.style.background = generatorRandomColor();
+    const startGradientColor = generateRandomColor().replace(/'/g, "")
+    const endGradientColor = generateRandomColor().replace(/'/g, "")
+    document.body.style.background = `linear-gradient(${startGradientColor}, ${endGradientColor})`
   }
 }

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 :root {
-    --customviolet: #2E2836;
-    --customyellow: #D7AF70;
+    --timergreen: #1abc9c;
+    --timerwhite: #ffffff;
 }
 
 * {
@@ -71,8 +71,8 @@ body {
 
 .seconds {
     
-    background-color: var(--customviolet);
-    color: var(--customyellow);
+    background-color: var(--timergreen);
+    color: var(--timerwhite);
     width: 120px;
     height: 50px;
     text-align: center;
@@ -82,8 +82,8 @@ body {
 
 .counter {
     
-    background-color: var(--customyellow);
-    color: var(--customviolet);
+    background-color: var(--timerwhite);
+    color: var(--timergreen);
     width: 120px;
     height: 50px;
     text-align: center;
