@@ -1,5 +1,5 @@
 import { Module } from "../core/module";
-`weatherData.hourly.temperature_2m`
+
 export class WeatherModule extends Module {
   
 
