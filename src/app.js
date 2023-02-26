@@ -8,11 +8,7 @@ import { AudioModule } from "./modules/audionmodule";
 import { WeatherModule } from "./modules/weather";
 import { FlyingCat } from "./modules/flyingcat";
 
-function hhh() {
-  const h = document.querySelector(".menu");
-  h.addEventListener("click", handlClick);
-  function handlClick(event) {
-    const f = event.target.dataset.type;
+
 
 
 class App {
