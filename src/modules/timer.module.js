@@ -12,7 +12,7 @@ export class TimerModule extends Module {
         timer.innerText = count
         document.body.prepend(timer)
         let newTimer  = setInterval(()=>{
-            timer.innerText = `${count--}`
+            timer.innerText = `${--count}`
             if(count === 0){
                 clearInterval(newTimer)
                 timer.innerText = 'End'
